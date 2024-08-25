@@ -1,5 +1,12 @@
 #include <REGX52.H>
 
+void delay_ms(unsigned int t){
+	unsigned int i, j;
+	for (i = 0; i < t; i++){
+		for (j = 0; j < 125; j++);
+	}
+}
+
 void main (void)
 {
 	P2 &= ~(1 << 0);
@@ -7,7 +14,10 @@ void main (void)
 	{
 		if ((P2 & (1 << 1)) == 0)
 		{
-			P2 ^= 0x01;
+			delay_ms(20);
+			if ((P2 & (1 << 1)) == 0){
+				P2 ^= (1 << 0);
+			}
 		}
 	}
 }

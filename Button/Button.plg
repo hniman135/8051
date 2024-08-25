@@ -7,3 +7,58 @@ D:\Learn\8051\8051\Button\Button.uvproj
 Project File Date:  08/03/2024
 
 <h2>Output:</h2>
+Build target 'Target 1'
+compiling main.c...
+main.c(5): error C251: illegal octal digit
+main.c(8): error C251: illegal octal digit
+main.c(8): error C141: syntax error near ')'
+main.c(10): error C251: illegal octal digit
+Target not created
+Build target 'Target 1'
+compiling main.c...
+main.c(5): error C251: illegal octal digit
+main.c(8): error C251: illegal octal digit
+main.c(10): error C251: illegal octal digit
+Target not created
+Build target 'Target 1'
+compiling main.c...
+main.c(5): error C251: illegal octal digit
+main.c(8): error C251: illegal octal digit
+main.c(10): error C251: illegal octal digit
+Target not created
+Build target 'Target 1'
+compiling main.c...
+linking...
+Program Size: data=9.0 xdata=0 code=28
+creating hex file from "Button"...
+"Button" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+main.c(4): error C141: syntax error near 'unsigned'
+main.c(4): error C202: 'i': undefined identifier
+main.c(4): error C202: 'i': undefined identifier
+main.c(4): error C202: 'i': undefined identifier
+main.c(4): error C141: syntax error near ')'
+main.c(5): error C141: syntax error near 'unsigned'
+main.c(5): error C202: 'j': undefined identifier
+main.c(5): error C202: 'j': undefined identifier
+main.c(5): error C141: syntax error near ')'
+Target not created
+Build target 'Target 1'
+compiling main.c...
+main.c(4): error C141: syntax error near 'unsigned'
+main.c(4): error C202: 'i': undefined identifier
+main.c(4): error C202: 'i': undefined identifier
+main.c(4): error C202: 'i': undefined identifier
+main.c(4): error C141: syntax error near ')'
+main.c(5): error C141: syntax error near 'unsigned'
+main.c(5): error C202: 'j': undefined identifier
+main.c(5): error C202: 'j': undefined identifier
+main.c(5): error C141: syntax error near ')'
+Target not created
+Build target 'Target 1'
+compiling main.c...
+linking...
+Program Size: data=9.0 xdata=0 code=72
+creating hex file from "Button"...
+"Button" - 0 Error(s), 0 Warning(s).
