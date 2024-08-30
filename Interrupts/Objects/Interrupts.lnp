@@ -1,0 +1,3 @@
+".\Objects\main.obj" 
+TO ".\Objects\Interrupts" 
+PRINT(".\Listings\Interrupts.m51") RAMSIZE(256) 

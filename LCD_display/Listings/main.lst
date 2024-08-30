@@ -1,4 +1,4 @@
-C51 COMPILER V9.60.7.0   MAIN                                                              08/27/2024 21:47:37 PAGE 1   
+C51 COMPILER V9.60.7.0   MAIN                                                              08/27/2024 21:49:15 PAGE 1   
 
 
 C51 COMPILER V9.60.7.0, COMPILATION OF MODULE MAIN
@@ -62,7 +62,7 @@ line level    source
   52   1        
   53   1        //so dong: 2, font: 5x8
   54   1        LCD_Cmd(0x38);
-C51 COMPILER V9.60.7.0   MAIN                                                              08/27/2024 21:47:37 PAGE 2   
+C51 COMPILER V9.60.7.0   MAIN                                                              08/27/2024 21:49:15 PAGE 2   
 
   55   1        //clrscr
   56   1        LCD_Cmd(0x01);
@@ -72,7 +72,7 @@ line level    source
   60          
   61          void main(void){
   62   1        LCD_Init();
-  63   1        LCD_string("HELLO");
+  63   1        LCD_string("HUYEN");
   64   1        LCD_Cmd(0xC0);
   65   1        LCD_string("TRAM");
   66   1        while(1){

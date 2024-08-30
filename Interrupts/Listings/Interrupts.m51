@@ -1,0 +1,95 @@
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                    08/30/2024  11:11:22  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.4.0, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\main.obj TO .\Objects\Interrupts PRINT (.\Listings\Interrupts.m51) RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\main.obj (MAIN)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  .\Objects\Interrupts (MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            IDATA   0008H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0003H     ABSOLUTE     
+                    0006H     07FAH                  *** GAP ***
+            CODE    0800H     000CH     UNIT         ?C_C51STARTUP
+            CODE    080CH     0007H     UNIT         ?PR?EXT_INIT?MAIN
+            CODE    0813H     0005H     UNIT         ?PR?MAIN?MAIN
+            CODE    0818H     0003H     UNIT         ?PR?EXT0_ISR?MAIN
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\Interrupts (MAIN)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?MAIN
+
+?PR?MAIN?MAIN
+  +--> ?PR?EXT_INIT?MAIN
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\Interrupts (MAIN)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  B:00A8H.7       PUBLIC        EA
+  C:0813H         PUBLIC        main
+  C:080CH         PUBLIC        Ext_Init
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  08/30/2024  11:11:22  PAGE 2
+
+
+  C:0818H         PUBLIC        Ext0_ISR
+  B:00A8H.0       PUBLIC        EX0
+  B:0088H.0       PUBLIC        IT0
+  B:0090H.0       PUBLIC        LED
+  -------         PROC          EXT_INIT
+  C:080CH         LINE#         4
+  C:080CH         LINE#         5
+  C:080CH         LINE#         6
+  C:080EH         LINE#         7
+  C:0810H         LINE#         8
+  C:0812H         LINE#         9
+  -------         ENDPROC       EXT_INIT
+  -------         PROC          EXT0_ISR
+  C:0818H         LINE#         11
+  C:0818H         LINE#         13
+  C:081AH         LINE#         14
+  -------         ENDPROC       EXT0_ISR
+  -------         PROC          MAIN
+  C:0813H         LINE#         15
+  C:0813H         LINE#         16
+  C:0813H         LINE#         17
+  C:0816H         LINE#         18
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        MAIN
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0012H BYTE ( 0%) *
+******************************************************************************
+
+Program Size: data=9.0 xdata=0 code=33
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

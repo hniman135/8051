@@ -60,7 +60,7 @@ void LCD_Init(){
 
 void main(void){
 	LCD_Init();
-	LCD_string("HELLO");
+	LCD_string("HUYEN");
 	LCD_Cmd(0xC0);
 	LCD_string("TRAM");
 	while(1){
