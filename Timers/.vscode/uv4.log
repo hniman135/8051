@@ -1,0 +1,9 @@
+Build target 'Target 1'
+compiling main.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY_MS_TIMER?MAIN
+
+Program Size: data=9.0 xdata=0 code=53
+".\Objects\Timers" - 0 Error(s), 1 Warning(s).
+Build Time Elapsed:  00:00:01
