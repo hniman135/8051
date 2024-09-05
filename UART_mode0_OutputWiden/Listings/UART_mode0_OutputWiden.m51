@@ -1,8 +1,9 @@
-BL51 BANKED LINKER/LOCATER V6.22.4.0                                                    08/31/2024  12:21:11  PAGE 1
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                    09/05/2024  23:53:49  PAGE 1
 
 
 BL51 BANKED LINKER/LOCATER V6.22.4.0, INVOKED BY:
-C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\main.obj TO .\Objects\UART PRINT (.\Listings\UART.m51) RAMSIZE (256)
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\main.obj TO .\Objects\UART_mode0_OutputWiden PRINT (.\Listings\UART_mode0_OutputWi
+>> den.m51) RAMSIZE (256)
 
 
 MEMORY MODEL: SMALL
@@ -13,7 +14,7 @@ INPUT MODULES INCLUDED:
   C:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
 
 
-LINK MAP OF MODULE:  .\Objects\UART (MAIN)
+LINK MAP OF MODULE:  .\Objects\UART_mode0_OutputWiden (MAIN)
 
 
             TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
@@ -33,7 +34,7 @@ LINK MAP OF MODULE:  .\Objects\UART (MAIN)
 
 
 
-OVERLAY MAP OF MODULE:   .\Objects\UART (MAIN)
+OVERLAY MAP OF MODULE:   .\Objects\UART_mode0_OutputWiden (MAIN)
 
 
 SEGMENT
@@ -50,7 +51,7 @@ SEGMENT
 
 
 
-SYMBOL TABLE OF MODULE:  .\Objects\UART (MAIN)
+SYMBOL TABLE OF MODULE:  .\Objects\UART_mode0_OutputWiden (MAIN)
 
   VALUE           TYPE          NAME
   ----------------------------------
@@ -58,10 +59,10 @@ SYMBOL TABLE OF MODULE:  .\Objects\UART (MAIN)
   -------         MODULE        MAIN
   C:0000H         SYMBOL        _ICE_DUMMY_
   B:00B0H.2       PUBLIC        P3_2
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  09/05/2024  23:53:49  PAGE 2
+
+
   B:0098H.1       PUBLIC        TI
-BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  08/31/2024  12:21:11  PAGE 2
-
-
   C:083AH         PUBLIC        main
   D:0099H         PUBLIC        SBUF
   D:0089H         PUBLIC        TMOD
@@ -118,8 +119,8 @@ SYMBOL TABLE OF MODULE:  .\Objects\UART (MAIN)
   C:0846H         LINE#         36
   -------         ENDPROC       MAIN
   -------         ENDMOD        MAIN
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  09/05/2024  23:53:49  PAGE 3
 
-BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  08/31/2024  12:21:11  PAGE 3
 
 
 ******************************************************************************

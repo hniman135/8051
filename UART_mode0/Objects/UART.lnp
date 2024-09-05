@@ -1,3 +1,0 @@
-".\Objects\main.obj" 
-TO ".\Objects\UART" 
-PRINT(".\Listings\UART.m51") RAMSIZE(256) 
