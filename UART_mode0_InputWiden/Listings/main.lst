@@ -1,0 +1,47 @@
+C51 COMPILER V9.60.7.0   MAIN                                                              09/06/2024 00:17:05 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\main
+                    -.lst) TABS(2) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          #include <REGX52.H>
+   2          void UART_mode0_Input()
+   3          {
+   4   1          //uart mode 0
+   5   1          SM0 = SM1 = 0;
+   6   1          // cho phep nhan du lieu
+   7   1          REN = 1;
+   8   1      }
+   9          int main()
+  10          {
+  11   1          UART_mode0_Input();
+  12   1          while (1)
+  13   1          {
+  14   2              //tao xung chot SH/LD 74165
+  15   2              P3_2 = 0;
+  16   2              P3_2 = 1;
+  17   2      
+  18   2              RI = 0;
+  19   2              while (RI == 0);
+  20   2              P2 = SBUF;
+  21   2          }
+  22   1          
+  23   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     24    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

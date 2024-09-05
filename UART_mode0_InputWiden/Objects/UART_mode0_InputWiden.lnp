@@ -1,0 +1,3 @@
+".\Objects\main.obj" 
+TO ".\Objects\UART_mode0_InputWiden" 
+PRINT(".\Listings\UART_mode0_InputWiden.m51") RAMSIZE(256) 
