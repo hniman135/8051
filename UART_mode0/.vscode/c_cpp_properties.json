@@ -4,8 +4,7 @@
             "name": "Target 1",
             "includePath": [
                 "C:\\Keil_v5\\C51\\INC",
-                "d:\\Learn\\8051\\8051\\UART",
-                "d:\\Learn\\8051\\8051\\lib"
+                "d:\\Learn\\8051\\8051\\UART_mode0"
             ],
             "defines": [
                 "__C51__",

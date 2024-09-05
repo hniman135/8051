@@ -4,7 +4,7 @@ void UART_mode0(sBUF)
 {
     SM0 = SM1 = 0; //mode 0
 
-    SBUF = sBUF; //data buf
+    SBUF = sBUF; //databuf
     while (TI == 0); //co ngat truyen/nhan xong
     TI = 0;
 	P3_2=0; //active shift register

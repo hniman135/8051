@@ -1,6 +1,7 @@
 Build target 'Target 1'
 compiling main.c...
-main.c(20): warning C206: 'delay_ms': missing function-prototype
-main.c(20): error C267: 'delay_ms': requires ANSI-style prototype
-Target not created.
+linking...
+Program Size: data=9.0 xdata=0 code=87
+creating hex file from ".\Objects\UART_mode0"...
+".\Objects\UART_mode0" - 0 Error(s), 0 Warning(s).
 Build Time Elapsed:  00:00:00
