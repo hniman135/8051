@@ -1,0 +1,18 @@
+Build target 'Target 1'
+compiling main.c...
+main.c(5): error C202: 'SM0': undefined identifier
+main.c(6): error C202: 'SM1': undefined identifier
+main.c(8): error C202: 'TMOD': undefined identifier
+main.c(10): error C202: 'TH1': undefined identifier
+main.c(12): error C202: 'TR1': undefined identifier
+main.c(14): error C202: 'TI': undefined identifier
+main.c(16): error C202: 'REN': undefined identifier
+main.c(21): error C202: 'TI': undefined identifier
+main.c(22): error C202: 'TI': undefined identifier
+main.c(23): error C202: 'SBUF': undefined identifier
+main.c(28): error C202: 'RI': undefined identifier
+main.c(32): error C202: 'RI': undefined identifier
+main.c(33): error C202: 'SBUF': undefined identifier
+main.c(42): error C202: 'P2': undefined identifier
+Target not created.
+Build Time Elapsed:  00:00:00
