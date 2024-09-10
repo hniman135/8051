@@ -1,0 +1,6 @@
+"main.obj",
+".\UART_mode1.obj",
+".\delay_ms.obj" 
+TO "UART_LAB" 
+
+ru 

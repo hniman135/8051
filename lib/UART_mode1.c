@@ -21,7 +21,7 @@ void UART_mode1_Init()
     TH1 = 0xFD;
 	PCON |= 0x80;
 	#else
-	 #error "loi"
+	 #error "vui long chon baud rate la 1 trong cac gia tri 1200 2400 9600 hoac 19200"
 	#endif
     //run timer1
     TR1=1;

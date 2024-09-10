@@ -43,7 +43,7 @@
             <InvalidFlash>1</InvalidFlash>
           </TargetStatus>
           <OutputDirectory>.\</OutputDirectory>
-          <OutputName>UART1_mode1</OutputName>
+          <OutputName>UART_LAB</OutputName>
           <CreateExecutable>1</CreateExecutable>
           <CreateLib>0</CreateLib>
           <CreateHexFile>1</CreateHexFile>
@@ -347,11 +347,6 @@
           <GroupName>Source Group 1</GroupName>
           <Files>
             <File>
-              <FileName>STARTUP.A51</FileName>
-              <FileType>2</FileType>
-              <FilePath>.\STARTUP.A51</FilePath>
-            </File>
-            <File>
               <FileName>main.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\main.c</FilePath>
@@ -360,6 +355,11 @@
               <FileName>UART_mode1.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\lib\UART_mode1.c</FilePath>
+            </File>
+            <File>
+              <FileName>delay_ms.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\lib\delay_ms.c</FilePath>
             </File>
           </Files>
         </Group>
