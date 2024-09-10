@@ -1,4 +1,6 @@
 "STARTUP.obj",
-"main.obj" 
+"main.obj",
+".\UART_mode1.obj" 
 TO "UART1_mode1" 
-RAMSIZE(256) 
+
+ru 

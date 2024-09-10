@@ -5,4 +5,6 @@
 
 #define FREQ_OSC 11059200u1
 
+#define BAUD_RATE 9600
+
 #endif
