@@ -1,0 +1,130 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        09/15/2024  13:07:08  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE main.obj, .\delay_ms.obj TO KichNoTuDien RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  main.obj (MAIN)
+  .\delay_ms.obj (DELAY_MS)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  KichNoTuDien (MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0001H     UNIT         _DATA_GROUP_
+            IDATA   0009H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0060H     UNIT         ?PR?MAIN?MAIN
+            CODE    0063H     0021H     UNIT         ?PR?_DELAY_MS_TIMER?DELAY_MS
+            CODE    0084H     000CH     UNIT         ?C_C51STARTUP
+            CODE    0090H     000AH     UNIT         ?CO?MAIN
+
+
+
+OVERLAY MAP OF MODULE:   KichNoTuDien (MAIN)
+
+
+SEGMENT                                DATA_GROUP 
+  +--> CALLED SEGMENT                START    LENGTH
+----------------------------------------------------
+?C_C51STARTUP                        -----    -----
+  +--> ?PR?MAIN?MAIN
+
+?PR?MAIN?MAIN                        0008H    0001H
+  +--> ?CO?MAIN
+  +--> ?PR?_DELAY_MS_TIMER?DELAY_MS
+
+
+
+SYMBOL TABLE OF MODULE:  KichNoTuDien (MAIN)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+BL51 BANKED LINKER/LOCATER V6.22                                                      09/15/2024  13:07:08  PAGE 2
+
+
+  C:0003H         PUBLIC        main
+  C:0090H         PUBLIC        Code7Seg
+  B:0090H.0       PUBLIC        BTN
+  B:00A0H.0       PUBLIC        TRG
+  -------         PROC          MAIN
+  -------         DO            
+  D:0008H         SYMBOL        i
+  -------         ENDDO         
+  C:0003H         LINE#         9
+  C:0003H         LINE#         10
+  C:0003H         LINE#         12
+  C:0003H         LINE#         13
+  C:0003H         LINE#         14
+  C:0006H         LINE#         15
+  C:0006H         LINE#         17
+  C:0009H         LINE#         18
+  C:000CH         LINE#         19
+  C:000CH         LINE#         20
+  C:0021H         LINE#         21
+  C:0028H         LINE#         22
+  C:0033H         LINE#         23
+  C:0035H         LINE#         24
+  C:0038H         LINE#         25
+  C:0038H         LINE#         26
+  C:004DH         LINE#         27
+  C:0054H         LINE#         28
+  C:005FH         LINE#         29
+  C:0061H         LINE#         30
+  C:0061H         LINE#         31
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        MAIN
+
+  -------         MODULE        DELAY_MS
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0089H         PUBLIC        TMOD
+  B:0088H.5       PUBLIC        TF0
+  D:008CH         PUBLIC        TH0
+  D:008AH         PUBLIC        TL0
+  B:0088H.4       PUBLIC        TR0
+  C:0063H         PUBLIC        _delay_ms_timer
+  -------         PROC          _DELAY_MS_TIMER
+  D:0006H         SYMBOL        t
+  -------         DO            
+  D:0004H         SYMBOL        i
+  -------         ENDDO         
+  C:0063H         LINE#         2
+  C:0063H         LINE#         3
+  C:0063H         LINE#         5
+  C:006DH         LINE#         6
+  C:006DH         LINE#         7
+  C:006DH         LINE#         8
+  C:0070H         LINE#         9
+  C:0073H         LINE#         10
+  C:0075H         LINE#         11
+  C:0078H         LINE#         12
+  C:007AH         LINE#         13
+  C:007CH         LINE#         14
+BL51 BANKED LINKER/LOCATER V6.22                                                      09/15/2024  13:07:08  PAGE 3
+
+
+  C:0083H         LINE#         15
+  -------         ENDPROC       _DELAY_MS_TIMER
+  -------         ENDMOD        DELAY_MS
+
+Program Size: data=10.0 xdata=0 code=154
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

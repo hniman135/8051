@@ -1,0 +1,4 @@
+"main.obj",
+".\delay_ms.obj" 
+TO "DenGiaoThong" 
+RAMSIZE(256) 

@@ -1,3 +1,9 @@
-"main.obj" 
+"main.obj",
+".\Soft_I2C.obj",
+".\LCD4.obj",
+".\Rtc_Ds1307.obj",
+".\LunarCalendar.obj",
+".\Delay.obj" 
 TO "LCD_display" 
-RAMSIZE(256) 
+
+ru 

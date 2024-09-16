@@ -1,3 +1,0 @@
-".\Objects\main.obj" 
-TO ".\Objects\LCD_display" 
-PRINT(".\Listings\LCD_display.m51") RAMSIZE(256) 

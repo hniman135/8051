@@ -1,3 +1,4 @@
-"main.obj" 
+"main.obj",
+".\delay_ms.obj" 
 TO "NgatNgoai" 
 RAMSIZE(256) 

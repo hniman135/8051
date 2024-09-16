@@ -1,93 +1,105 @@
-C51 COMPILER V9.52.0.0   MAIN                                                              08/25/2024 16:11:09 PAGE 1   
+C51 COMPILER V9.01   MAIN                                                                  09/16/2024 23:06:33 PAGE 1   
 
 
-C51 COMPILER V9.52.0.0, COMPILATION OF MODULE MAIN
+C51 COMPILER V9.01, COMPILATION OF MODULE MAIN
 OBJECT MODULE PLACED IN main.OBJ
-COMPILER INVOKED BY: C:\Keil_v5_8051\C51\BIN\C51.EXE main.c BROWSE DEBUG OBJECTEXTEND TABS(2)
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE main.c OMF2 BROWSE DEBUG
 
 line level    source
 
-   1          #include <REGX52.H>
-   2          
-   3          sbit LCD_RS = P2^0;
-   4          sbit LCD_RW = P2^1;
-   5          sbit LCD_EN = P2^2;
-   6          
-   7          #define LCD_data P1
-   8          void delay_ms(unsigned int t){
-   9   1        unsigned int x, y;
-  10   1        for (x = 0; x < t; x++){
-  11   2          for (y = 0; y < 125; y++);
-  12   2        }
-  13   1      }
-  14          
-  15          void LCD_Cmd(unsigned char cmd){
-  16   1        LCD_RS = 0;
-  17   1        LCD_RW = 0;
-  18   1        LCD_data = cmd;
-  19   1        LCD_EN = 0;
-  20   1        LCD_EN = 1;
-  21   1        if (cmd<=0x02){
-  22   2          delay_ms(2);
-  23   2        }
-  24   1        else{
-  25   2          delay_ms(1);
-  26   2        }
-  27   1      }
-  28          
-  29          void LCD_char(unsigned char c){
-  30   1        LCD_RS = 1;
-  31   1        LCD_RW = 0;
-  32   1        LCD_data = c;
-  33   1        LCD_EN = 0;
-  34   1        LCD_EN = 1;
-  35   1        delay_ms(1);
-  36   1      }
-  37          
-  38          void LCD_string(unsigned char *str){
-  39   1        unsigned int i = 0;
-  40   1        while (str[i] != 0){
-  41   2          LCD_char(str[i]);
-  42   2          i++;
-  43   2        }
-  44   1      }
-  45          
-  46          void LCD_Init(){
-  47   1        LCD_Cmd(0x30);
-  48   1        delay_ms(5);
-  49   1        LCD_Cmd(0x30);
-  50   1        delay_ms(1);
-  51   1        LCD_Cmd(0x30);
-  52   1        
-  53   1        //so dong: 2, font: 5x8
-  54   1        LCD_Cmd(0x38);
-  55   1        //clrscr
-C51 COMPILER V9.52.0.0   MAIN                                                              08/25/2024 16:11:09 PAGE 2   
+   1          #include"main.h"
+   2          #include"..\lib\Soft_I2c.h"
+   3          #include"..\lib\Lcd4.h"
+   4          #include"..\lib\Rtc_Ds1307.h"
+   5          #include"..\lib\LunarCalendar.h"
+   6          #include"port.h"
+   7          
+   8          unsigned char * code Days[] = {"SUN","MON","TUE","WED","THU","FRI","SAT"};
+   9          
+  10          void main()
+  11          {
+  12   1              unsigned char Hour, Minute, Second, Mode, Day, Date, Month, Year;
+  13   1              unsigned char SolarDate, SolarMonth;
+  14   1              char SolarYear;
+  15   1      
+  16   1              Soft_I2c_Init();
+  17   1              Ds1307_Init();
+  18   1              Lcd_Init();
+  19   1              Ds1307_Write(0x07, 0x90);
+  20   1      
+  21   1              //khoi tao Ngat canh xuong INT1
+  22   1              IT1 = 1;
+  23   1              EX1 = 1;
+  24   1              EA = 1;
+  25   1              while(1)
+  26   1              {
+  27   2                      Ds1307_Read_Time(&Hour, &Minute, &Second, &Mode);
+  28   2      
+  29   2                      Lcd_Chr(1,5,Hour/10+0x30);
+  30   2                      Lcd_Chr_Cp(Hour%10+0x30);
+  31   2                      Lcd_Chr_Cp(':');
+  32   2                      Lcd_Chr_Cp(Minute/10+0x30);
+  33   2                      Lcd_Chr_Cp(Minute%10+0x30);
+  34   2                      Lcd_Chr_Cp(':');
+  35   2                      Lcd_Chr_Cp(Second/10+0x30);
+  36   2                      Lcd_Chr_Cp(Second%10+0x30);
+  37   2      
+  38   2                      Ds1307_Read_Date(&Day, &Date, &Month, &Year);
+  39   2                      if(BTN == 1)
+  40   2                      {
+  41   3                              Lcd_Out(2,1,"                ");
+  42   3                              Lcd_Out(2,2,Days[Day-1]);
+  43   3                              Lcd_Chr_Cp(' ');
+  44   3                              Lcd_Chr_Cp(Date/10+0x30);
+  45   3                              Lcd_Chr_Cp(Date%10+0x30);
+  46   3                              Lcd_Chr_Cp('/');
+  47   3                              Lcd_Chr_Cp(Month/10+0x30);
+  48   3                              Lcd_Chr_Cp(Month%10+0x30);
+  49   3                              Lcd_Out_Cp("/20");
+  50   3                              Lcd_Chr_Cp(Year/10+0x30);
+  51   3                              Lcd_Chr_Cp(Year%10+0x30);
+  52   3                      }
+  53   2                      else
+  54   2                      {
+  55   3                              Solar2Lunar(Date, Month, Year, &SolarDate, &SolarMonth, & SolarYear);
+C51 COMPILER V9.01   MAIN                                                                  09/16/2024 23:06:33 PAGE 2   
 
-  56   1        LCD_Cmd(0x01);
-  57   1        //bat hien thi va con tro
-  58   1        LCD_Cmd (0x0E);
-  59   1      }
-  60          
-  61          void main(void){
-  62   1        LCD_Init();
-  63   1        LCD_string("HELLO");
-  64   1        LCD_Cmd(0xC0);
-  65   1        LCD_string("TRAM");
-  66   1        while(1){
-  67   2        
-  68   2        }
-  69   1      }
+  56   3                              Lcd_Out(2,1,"LUNAR:");
+  57   3                              Lcd_Chr_Cp(SolarDate/10+0x30);
+  58   3                              Lcd_Chr_Cp(SolarDate%10+0x30);
+  59   3                              Lcd_Chr_Cp('/');
+  60   3                              Lcd_Chr_Cp(SolarMonth/10+0x30);
+  61   3                              Lcd_Chr_Cp(SolarMonth%10+0x30);
+  62   3                              Lcd_Chr_Cp('/');
+  63   3                              Lcd_Chr_Cp((SolarYear+2000)/1000+0x30);
+  64   3                              Lcd_Chr_Cp((SolarYear+2000)/100%10+0x30);
+  65   3                              Lcd_Chr_Cp((SolarYear+2000)/10%10+0x30);
+  66   3                              Lcd_Chr_Cp((SolarYear+2000)%10+0x30);
+  67   3                      }
+  68   2                      PCON |= 0x01; //trang thai nghi
+  69   2              }
+  70   1              
+  71   1      }
+  72          
+  73          //ngat ngoai danh thuc he thong
+  74          void EX1_ISR(void) interrupt 2
+  75          {
+  76   1      
+  77   1      }
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    185    ----
-   CONSTANT SIZE    =     11    ----
+   CODE SIZE        =    583    ----
+   CONSTANT SIZE    =     77    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
-   DATA SIZE        =   ----       5
+   DATA SIZE        =   ----      11
    IDATA SIZE       =   ----    ----
    BIT SIZE         =   ----    ----
+   EDATA SIZE       =   ----    ----
+   HDATA SIZE       =   ----    ----
+   XDATA CONST SIZE =   ----    ----
+   FAR CONST SIZE   =   ----    ----
 END OF MODULE INFORMATION.
 
 

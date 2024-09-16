@@ -1,0 +1,141 @@
+C51 COMPILER V9.01   LCD                                                                   09/15/2024 15:30:17 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE LCD
+OBJECT MODULE PLACED IN .\LCD.obj
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE ..\lib\LCD.c OMF2 BROWSE DEBUG PRINT(.\LCD.lst) OBJECT(.\LCD.obj)
+
+line level    source
+
+   1          #include "LCD.h"
+   2          #include "delay_ms.h"
+   3          
+   4          //config HW
+   5          #define LCD_DATA P3
+   6          sbit LCD_RS = P2^0;
+   7          sbit LCD_EN = P2^1;
+   8          
+   9          
+  10          //LCD command MODE
+  11          void LCD_cmd(unsigned char cmd)
+  12          {
+  13   1              LCD_RS = 0;
+  14   1              LCD_DATA =  cmd;
+  15   1              LCD_EN = 0;
+  16   1              LCD_EN = 1;
+  17   1              
+  18   1              if (cmd <= 0x02)
+  19   1              {
+  20   2                      delay_ms_timer(2);
+  21   2              }       
+  22   1              else
+  23   1              {
+  24   2                      delay_ms_timer(1);
+  25   2              }
+  26   1      }
+  27          
+  28          //char current position
+  29          void LCD_chr_cp(unsigned char chr)      
+  30          {
+  31   1              LCD_RS = 1;
+  32   1              LCD_DATA =  chr;
+  33   1              LCD_EN = 0;
+  34   1              LCD_EN = 1;
+  35   1      
+  36   1              delay_ms_timer(2);
+  37   1      }
+  38          
+  39          //string current position
+  40          void LCD_str_cp(unsigned char *str)
+  41          {
+  42   1              unsigned int i = 0;
+  43   1              while (str[i] != 0)
+  44   1              {
+  45   2                       LCD_chr_cp(str[i]);
+  46   2                       i++;
+  47   2              }
+  48   1      }
+  49          
+  50          //LCD ClearScreen
+  51          void LCD_Clr()
+  52          {
+  53   1              LCD_cmd(0x01);
+  54   1      }
+  55          
+C51 COMPILER V9.01   LCD                                                                   09/15/2024 15:30:17 PAGE 2   
+
+  56          //En = 1 to display pointer
+  57          void LCD_EnPnt(unsigned char En)
+  58          {
+  59   1              if (En == 0)
+  60   1              {
+  61   2                      LCD_cmd(0x0C);
+  62   2              }
+  63   1              else
+  64   1              {
+  65   2                       LCD_cmd(0x0E);
+  66   2              }
+  67   1      }
+  68          
+  69          //LCD INIT
+  70          void LCD_Init()
+  71          {
+  72   1              LCD_cmd(0x30);
+  73   1              delay_ms_timer(5);
+  74   1              LCD_cmd(0x30);
+  75   1              delay_ms_timer(1);
+  76   1              LCD_cmd(0x30);
+  77   1      
+  78   1              LCD_cmd(0x38);          //2 dong, size 5x8
+  79   1              //LCD_cmd(0x3C);                //2 dong, size 5x10
+  80   1              //LCD_cmd(0x2C);                //(default) 1 dong, size 5x8
+  81   1      
+  82   1              LCD_EnPnt(0);
+  83   1              LCD_Clr();
+  84   1      }
+  85          
+  86          //Move pointer to line 2
+  87          void LCD_line2()
+  88          {
+  89   1              LCD_cmd(0xC0);
+  90   1      }
+  91          
+  92          //display char at any position
+  93          void LCD_chr(unsigned char col, unsigned char row, unsigned char chr)
+  94          {
+  95   1         unsigned char cmd;
+  96   1         cmd = (row==1?0x80:0xC0) + col - 1;
+  97   1         LCD_cmd(cmd);
+  98   1      
+  99   1         LCD_chr_cp(chr);
+ 100   1      }
+ 101          
+ 102          //display string at any position
+ 103          void LCD_str(unsigned char col, unsigned char row, unsigned char *str)
+ 104          {
+ 105   1         unsigned char cmd;
+ 106   1         cmd = (row==1?0x80:0xC0) + col - 1;
+ 107   1         LCD_cmd(cmd);
+ 108   1      
+ 109   1         LCD_str_cp(str);
+ 110   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    199    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+C51 COMPILER V9.01   LCD                                                                   09/15/2024 15:30:17 PAGE 3   
+
+   DATA SIZE        =   ----       9
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+   EDATA SIZE       =   ----    ----
+   HDATA SIZE       =   ----    ----
+   XDATA CONST SIZE =   ----    ----
+   FAR CONST SIZE   =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

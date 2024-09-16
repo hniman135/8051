@@ -1,69 +1,77 @@
-#include <REGX52.H>
+#include"main.h"
+#include"..\lib\Soft_I2c.h"
+#include"..\lib\Lcd4.h"
+#include"..\lib\Rtc_Ds1307.h"
+#include"..\lib\LunarCalendar.h"
+#include"port.h"
 
-sbit LCD_RS = P2^0;
-sbit LCD_RW = P2^1;
-sbit LCD_EN = P2^2;
+unsigned char * code Days[] = {"SUN","MON","TUE","WED","THU","FRI","SAT"};
 
-#define LCD_data P1
-void delay_ms(unsigned int t){
-	unsigned int x, y;
-	for (x = 0; x < t; x++){
-		for (y = 0; y < 125; y++);
+void main()
+{
+	unsigned char Hour, Minute, Second, Mode, Day, Date, Month, Year;
+	unsigned char SolarDate, SolarMonth;
+	char SolarYear;
+
+	Soft_I2c_Init();
+	Ds1307_Init();
+	Lcd_Init();
+	Ds1307_Write(0x07, 0x90);
+
+	//khoi tao Ngat canh xuong INT1
+	IT1 = 1;
+	EX1 = 1;
+	EA = 1;
+	while(1)
+	{
+		Ds1307_Read_Time(&Hour, &Minute, &Second, &Mode);
+
+		Lcd_Chr(1,5,Hour/10+0x30);
+		Lcd_Chr_Cp(Hour%10+0x30);
+		Lcd_Chr_Cp(':');
+		Lcd_Chr_Cp(Minute/10+0x30);
+		Lcd_Chr_Cp(Minute%10+0x30);
+		Lcd_Chr_Cp(':');
+		Lcd_Chr_Cp(Second/10+0x30);
+		Lcd_Chr_Cp(Second%10+0x30);
+
+		Ds1307_Read_Date(&Day, &Date, &Month, &Year);
+		if(BTN == 1)
+		{
+			Lcd_Out(2,1,"                ");
+			Lcd_Out(2,2,Days[Day-1]);
+			Lcd_Chr_Cp(' ');
+			Lcd_Chr_Cp(Date/10+0x30);
+			Lcd_Chr_Cp(Date%10+0x30);
+			Lcd_Chr_Cp('/');
+			Lcd_Chr_Cp(Month/10+0x30);
+			Lcd_Chr_Cp(Month%10+0x30);
+			Lcd_Out_Cp("/20");
+			Lcd_Chr_Cp(Year/10+0x30);
+			Lcd_Chr_Cp(Year%10+0x30);
+		}
+		else
+		{
+			Solar2Lunar(Date, Month, Year, &SolarDate, &SolarMonth, & SolarYear);
+			Lcd_Out(2,1,"LUNAR:");
+			Lcd_Chr_Cp(SolarDate/10+0x30);
+			Lcd_Chr_Cp(SolarDate%10+0x30);
+			Lcd_Chr_Cp('/');
+			Lcd_Chr_Cp(SolarMonth/10+0x30);
+			Lcd_Chr_Cp(SolarMonth%10+0x30);
+			Lcd_Chr_Cp('/');
+			Lcd_Chr_Cp((SolarYear+2000)/1000+0x30);
+			Lcd_Chr_Cp((SolarYear+2000)/100%10+0x30);
+			Lcd_Chr_Cp((SolarYear+2000)/10%10+0x30);
+			Lcd_Chr_Cp((SolarYear+2000)%10+0x30);
+		}
+		PCON |= 0x01; //trang thai nghi
 	}
-}
-
-void LCD_Cmd(unsigned char cmd){
-	LCD_RS = 0;
-	LCD_RW = 0;
-	LCD_data = cmd;
-	LCD_EN = 0;
-	LCD_EN = 1;
-	if (cmd<=0x02){
-		delay_ms(2);
-	}
-	else{
-		delay_ms(1);
-	}
-}
-
-void LCD_char(unsigned char c){
-	LCD_RS = 1;
-	LCD_RW = 0;
-	LCD_data = c;
-	LCD_EN = 0;
-	LCD_EN = 1;
-	delay_ms(1);
-}
-
-void LCD_string(unsigned char *str){
-	unsigned int i = 0;
-	while (str[i] != 0){
-		LCD_char(str[i]);
-		i++;
-	}
-}
-
-void LCD_Init(){
-	LCD_Cmd(0x30);
-	delay_ms(5);
-	LCD_Cmd(0x30);
-	delay_ms(1);
-	LCD_Cmd(0x30);
 	
-	//so dong: 2, font: 5x8
-	LCD_Cmd(0x38);
-	//clrscr
-	LCD_Cmd(0x01);
-	//bat hien thi va con tro
-	LCD_Cmd (0x0E);
 }
 
-void main(void){
-	LCD_Init();
-	LCD_string("HUYEN");
-	LCD_Cmd(0xC0);
-	LCD_string("TRAM");
-	while(1){
-	
-	}
+//ngat ngoai danh thuc he thong
+void EX1_ISR(void) interrupt 2
+{
+
 }
