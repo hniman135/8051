@@ -153,7 +153,7 @@
         <aSer4>0</aSer4>
         <StkLoc>0</StkLoc>
         <TrcWin>0</TrcWin>
-        <newCpu>0</newCpu>
+        <newCpu>1</newCpu>
         <uProt>0</uProt>
       </DebugFlag>
       <LintExecutable></LintExecutable>
@@ -167,29 +167,29 @@
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <File>
-      <GroupNumber>1</GroupNumber>
-      <FileNumber>1</FileNumber>
+      <GroupNumber>0</GroupNumber>
+      <FileNumber>0</FileNumber>
       <FileType>1</FileType>
-      <tvExp>1</tvExp>
+      <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>12</ColumnNumber>
+      <ColumnNumber>27</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>1</TopLine>
-      <CurrentLine>2</CurrentLine>
+      <TopLine>14</TopLine>
+      <CurrentLine>53</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\main.c</PathWithFileName>
       <FilenameWithoutPath>main.c</FilenameWithoutPath>
     </File>
     <File>
-      <GroupNumber>1</GroupNumber>
+      <GroupNumber>0</GroupNumber>
       <FileNumber>0</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>19</ColumnNumber>
+      <ColumnNumber>20</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
       <TopLine>1</TopLine>
-      <CurrentLine>2</CurrentLine>
+      <CurrentLine>10</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\lib\delay_ms.c</PathWithFileName>
       <FilenameWithoutPath>delay_ms.c</FilenameWithoutPath>
@@ -197,9 +197,9 @@
   </Group>
 
   <AlienFiles>
-    <PathWithFilename>D:\Learn\8051\8051\NgatNgoai\PORT.H</PathWithFilename>
+    <PathWithFilename>D:\Learn\8051\8051\DemSanPham\main.h</PathWithFilename>
     <TopLine>1</TopLine>
-    <CurrentLine>1</CurrentLine>
+    <CurrentLine>6</CurrentLine>
     <Constant>0</Constant>
     <WindowPosition>
       <length>0</length>
@@ -1567,21 +1567,15 @@
       <Documents>
         <Doc>
           <Name>.\main.c</Name>
-          <ColumnNumber>12</ColumnNumber>
-          <TopLine>1</TopLine>
-          <CurrentLine>2</CurrentLine>
+          <ColumnNumber>27</ColumnNumber>
+          <TopLine>14</TopLine>
+          <CurrentLine>53</CurrentLine>
         </Doc>
         <Doc>
-          <Name>..\lib\delay_ms.c</Name>
-          <ColumnNumber>19</ColumnNumber>
+          <Name>MAIN.H</Name>
+          <ColumnNumber>25</ColumnNumber>
           <TopLine>1</TopLine>
-          <CurrentLine>2</CurrentLine>
-        </Doc>
-        <Doc>
-          <Name>PORT.H</Name>
-          <ColumnNumber>0</ColumnNumber>
-          <TopLine>1</TopLine>
-          <CurrentLine>1</CurrentLine>
+          <CurrentLine>6</CurrentLine>
         </Doc>
       </Documents>
     </MDIGroup>

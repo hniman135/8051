@@ -1,0 +1,95 @@
+C51 COMPILER V9.01   MAIN                                                                  09/17/2024 20:16:54 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN main.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE main.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include "main.h"
+   2          #include "..\lib\delay_ms.h"
+   3          
+   4          unsigned char code Code7Seg[] = {0xC0, 0xF9, 0xA4, 0xB0, 0x99, 0x92, 0x82, 0xF8, 0x80, 0x90};
+   5          void Display(unsigned int N)
+   6          {
+   7   1              unsigned char chucnghin, nghin, tram, chuc, dvi;
+   8   1              chucnghin = N/10000;
+   9   1              N %= 10000;
+  10   1              nghin = N/1000;
+  11   1              N %= 1000;
+  12   1              tram = N/100;
+  13   1              N %= 100;
+  14   1              chuc = N/10;
+  15   1              N %= 10;
+  16   1              dvi = N/1;
+  17   1      
+  18   1              P0 = Code7Seg[chucnghin];
+  19   1              P2_4 = 0;
+  20   1              delay_ms_timer(1);
+  21   1              P2_4 = 1;
+  22   1      
+  23   1              P0 = Code7Seg[nghin];
+  24   1              P2_3 = 0;
+  25   1              delay_ms_timer(1);
+  26   1              P2_3 = 1;
+  27   1      
+  28   1              P0 = Code7Seg[tram];
+  29   1              P2_2 = 0;
+  30   1              delay_ms_timer(1);
+  31   1              P2_2 = 1;
+  32   1      
+  33   1              P0 = Code7Seg[chuc];
+  34   1              P2_1 = 0;
+  35   1              delay_ms_timer(1);
+  36   1              P2_1 = 1;
+  37   1      
+  38   1              P0 = Code7Seg[dvi];
+  39   1              P2_0 = 0;
+  40   1              delay_ms_timer(1);
+  41   1              P2_0 = 1;
+  42   1      }
+  43          
+  44          int main()
+  45          {
+  46   1              unsigned char high, low;
+  47   1              unsigned int number;    
+  48   1              TMOD &= 0x0F;
+  49   1              TMOD |= 0x50;
+  50   1              TR1 = 1;
+  51   1      
+  52   1              while(1)
+  53   1                      
+  54   1              {
+  55   2      //              do{
+C51 COMPILER V9.01   MAIN                                                                  09/17/2024 20:16:54 PAGE 2   
+
+  56   2      //              high = TH1;
+  57   2      //              low = TL1;
+  58   2      //              }while(high != TH1);
+  59   2      //      
+  60   2      //              number = high;
+  61   2      //              number <<= 8;
+  62   2      //              number |= low;
+  63   2      //              Display(number);
+  64   2      P3_0 = !P3_0;
+  65   2      delay_ms_timer(1000);
+  66   2              }
+  67   1      }
+*** WARNING C280 IN LINE 46 OF MAIN.C: 'high': unreferenced local variable
+*** WARNING C280 IN LINE 46 OF MAIN.C: 'low': unreferenced local variable
+*** WARNING C280 IN LINE 47 OF MAIN.C: 'number': unreferenced local variable
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    225    ----
+   CONSTANT SIZE    =     10    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       9
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  3 WARNING(S),  0 ERROR(S)

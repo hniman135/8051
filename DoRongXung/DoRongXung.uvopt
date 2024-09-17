@@ -153,7 +153,7 @@
         <aSer4>0</aSer4>
         <StkLoc>0</StkLoc>
         <TrcWin>0</TrcWin>
-        <newCpu>0</newCpu>
+        <newCpu>1</newCpu>
         <uProt>0</uProt>
       </DebugFlag>
       <LintExecutable></LintExecutable>
@@ -167,39 +167,79 @@
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <File>
-      <GroupNumber>1</GroupNumber>
-      <FileNumber>1</FileNumber>
+      <GroupNumber>0</GroupNumber>
+      <FileNumber>0</FileNumber>
       <FileType>1</FileType>
-      <tvExp>1</tvExp>
+      <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>12</ColumnNumber>
+      <ColumnNumber>13</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
       <TopLine>1</TopLine>
-      <CurrentLine>2</CurrentLine>
+      <CurrentLine>11</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\main.c</PathWithFileName>
       <FilenameWithoutPath>main.c</FilenameWithoutPath>
     </File>
     <File>
-      <GroupNumber>1</GroupNumber>
+      <GroupNumber>0</GroupNumber>
       <FileNumber>0</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>19</ColumnNumber>
+      <ColumnNumber>0</ColumnNumber>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <TopLine>0</TopLine>
+      <CurrentLine>0</CurrentLine>
+      <bDave2>0</bDave2>
+      <PathWithFileName>..\lib\LCD4.c</PathWithFileName>
+      <FilenameWithoutPath>LCD4.c</FilenameWithoutPath>
+    </File>
+    <File>
+      <GroupNumber>0</GroupNumber>
+      <FileNumber>0</FileNumber>
+      <FileType>1</FileType>
+      <tvExp>0</tvExp>
+      <Focus>0</Focus>
+      <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
       <TopLine>1</TopLine>
-      <CurrentLine>2</CurrentLine>
+      <CurrentLine>1</CurrentLine>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\lib\delay_ms.c</PathWithFileName>
-      <FilenameWithoutPath>delay_ms.c</FilenameWithoutPath>
+      <PathWithFileName>..\lib\Delay.c</PathWithFileName>
+      <FilenameWithoutPath>Delay.c</FilenameWithoutPath>
     </File>
   </Group>
 
   <AlienFiles>
-    <PathWithFilename>D:\Learn\8051\8051\NgatNgoai\PORT.H</PathWithFilename>
+    <PathWithFilename>D:\Learn\8051\8051\DoRongXung\main.h</PathWithFilename>
     <TopLine>1</TopLine>
-    <CurrentLine>1</CurrentLine>
+    <CurrentLine>6</CurrentLine>
+    <Constant>0</Constant>
+    <WindowPosition>
+      <length>0</length>
+      <flags>0</flags>
+      <showCmd>0</showCmd>
+      <MinPosition>
+        <xPos>0</xPos>
+        <yPos>0</yPos>
+      </MinPosition>
+      <MaxPosition>
+        <xPos>0</xPos>
+        <yPos>0</yPos>
+      </MaxPosition>
+      <NormalPosition>
+        <Top>0</Top>
+        <Left>0</Left>
+        <Right>0</Right>
+        <Bottom>0</Bottom>
+      </NormalPosition>
+    </WindowPosition>
+  </AlienFiles>
+
+  <AlienFiles>
+    <PathWithFilename>D:\Learn\8051\8051\DoRongXung\port.h</PathWithFilename>
+    <TopLine>1</TopLine>
+    <CurrentLine>12</CurrentLine>
     <Constant>0</Constant>
     <WindowPosition>
       <length>0</length>
@@ -1567,18 +1607,24 @@
       <Documents>
         <Doc>
           <Name>.\main.c</Name>
-          <ColumnNumber>12</ColumnNumber>
+          <ColumnNumber>13</ColumnNumber>
           <TopLine>1</TopLine>
-          <CurrentLine>2</CurrentLine>
+          <CurrentLine>11</CurrentLine>
         </Doc>
         <Doc>
-          <Name>..\lib\delay_ms.c</Name>
-          <ColumnNumber>19</ColumnNumber>
+          <Name>MAIN.H</Name>
+          <ColumnNumber>25</ColumnNumber>
           <TopLine>1</TopLine>
-          <CurrentLine>2</CurrentLine>
+          <CurrentLine>6</CurrentLine>
         </Doc>
         <Doc>
           <Name>PORT.H</Name>
+          <ColumnNumber>40</ColumnNumber>
+          <TopLine>1</TopLine>
+          <CurrentLine>12</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>..\lib\Delay.c</Name>
           <ColumnNumber>0</ColumnNumber>
           <TopLine>1</TopLine>
           <CurrentLine>1</CurrentLine>
