@@ -7,3 +7,11 @@ D:\Learn\8051\8051\NgatTimer\NgatTimer.uvproj
 Project File Date:  09/18/2024
 
 <h2>Output:</h2>
+Build target 'Target 1'
+compiling main.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY_MS_TIMER?DELAY_MS
+Program Size: data=10.0 xdata=0 code=228
+creating hex file from "NgatTimer"...
+"NgatTimer" - 0 Error(s), 1 Warning(s).

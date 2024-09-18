@@ -1,0 +1,27 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+D:\Learn\8051\8051\PhatHienMatXung\PhatHienMatXung.uvproj
+Project File Date:  09/18/2024
+
+<h2>Output:</h2>
+Build target 'Target 1'
+Target has no object modules
+Target not created
+Build target 'Target 1'
+compiling main.c...
+MAIN.C(32): error C202: 'IF2': undefined identifier
+Target not created
+Build target 'Target 1'
+compiling main.c...
+linking...
+Program Size: data=9.0 xdata=0 code=53
+creating hex file from "PhatHienMatXung"...
+"PhatHienMatXung" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+linking...
+Program Size: data=9.0 xdata=0 code=53
+creating hex file from "PhatHienMatXung"...
+"PhatHienMatXung" - 0 Error(s), 0 Warning(s).

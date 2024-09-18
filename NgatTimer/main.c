@@ -17,7 +17,7 @@ int main()
 
 	while(1)
 	{
-
+		PCON |= 0x01;
 	}
 }
 

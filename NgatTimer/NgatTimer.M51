@@ -1,4 +1,4 @@
-BL51 BANKED LINKER/LOCATER V6.22                                                        09/17/2024  22:02:21  PAGE 1
+BL51 BANKED LINKER/LOCATER V6.22                                                        09/18/2024  18:52:31  PAGE 1
 
 
 BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
@@ -33,8 +33,8 @@ LINK MAP OF MODULE:  NgatTimer (MAIN)
             CODE    000BH     0003H     ABSOLUTE     
             CODE    000EH     008CH     UNIT         ?C_C51STARTUP
             CODE    009AH     0027H     UNIT         ?PR?_DELAY_MS_TIMER?DELAY_MS
-            CODE    00C1H     0014H     UNIT         ?PR?MAIN?MAIN
-            CODE    00D5H     0010H     UNIT         ?PR?TIMER0OVERFLOW?MAIN
+            CODE    00C1H     0017H     UNIT         ?PR?MAIN?MAIN
+            CODE    00D8H     0010H     UNIT         ?PR?TIMER0OVERFLOW?MAIN
 
 
 
@@ -59,17 +59,18 @@ SYMBOL TABLE OF MODULE:  NgatTimer (MAIN)
   C:0000H         SYMBOL        _ICE_DUMMY_
   D:00A0H         PUBLIC        P2
   B:00A8H.7       PUBLIC        EA
-BL51 BANKED LINKER/LOCATER V6.22                                                      09/17/2024  22:02:21  PAGE 2
+BL51 BANKED LINKER/LOCATER V6.22                                                      09/18/2024  18:52:31  PAGE 2
 
 
   C:00C1H         PUBLIC        main
+  D:0087H         PUBLIC        PCON
   D:0089H         PUBLIC        TMOD
   D:0008H         PUBLIC        cnt
   B:00A8H.1       PUBLIC        ET0
   D:008CH         PUBLIC        TH0
   D:008AH         PUBLIC        TL0
   B:0088H.4       PUBLIC        TR0
-  C:00D5H         PUBLIC        Timer0OverFlow
+  C:00D8H         PUBLIC        Timer0OverFlow
   -------         PROC          MAIN
   C:00C1H         LINE#         6
   C:00C1H         LINE#         7
@@ -82,19 +83,20 @@ SYMBOL TABLE OF MODULE:  NgatTimer (MAIN)
   C:00D1H         LINE#         16
   C:00D3H         LINE#         18
   C:00D3H         LINE#         19
-  C:00D3H         LINE#         21
+  C:00D3H         LINE#         20
+  C:00D6H         LINE#         21
   -------         ENDPROC       MAIN
   -------         PROC          TIMER0OVERFLOW
-  C:00D5H         LINE#         24
-  C:00D5H         LINE#         26
-  C:00D8H         LINE#         27
-  C:00DBH         LINE#         28
-  C:00DEH         LINE#         29
-  C:00DEH         LINE#         30
-  C:00DEH         LINE#         31
-  C:00E1H         LINE#         32
-  C:00E4H         LINE#         33
-  C:00E4H         LINE#         34
+  C:00D8H         LINE#         24
+  C:00D8H         LINE#         26
+  C:00DBH         LINE#         27
+  C:00DEH         LINE#         28
+  C:00E1H         LINE#         29
+  C:00E1H         LINE#         30
+  C:00E1H         LINE#         31
+  C:00E4H         LINE#         32
+  C:00E7H         LINE#         33
+  C:00E7H         LINE#         34
   -------         ENDPROC       TIMER0OVERFLOW
   -------         ENDMOD        MAIN
 
@@ -117,11 +119,11 @@ SYMBOL TABLE OF MODULE:  NgatTimer (MAIN)
   C:009DH         LINE#         6
   C:00A0H         LINE#         7
   C:00AAH         LINE#         8
+BL51 BANKED LINKER/LOCATER V6.22                                                      09/18/2024  18:52:31  PAGE 3
+
+
   C:00AAH         LINE#         9
   C:00ADH         LINE#         10
-BL51 BANKED LINKER/LOCATER V6.22                                                      09/17/2024  22:02:21  PAGE 3
-
-
   C:00B0H         LINE#         11
   C:00B2H         LINE#         12
   C:00B5H         LINE#         13
@@ -134,5 +136,5 @@ SYMBOL TABLE OF MODULE:  NgatTimer (MAIN)
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
     SEGMENT: ?PR?_DELAY_MS_TIMER?DELAY_MS
 
-Program Size: data=10.0 xdata=0 code=225
+Program Size: data=10.0 xdata=0 code=228
 LINK/LOCATE RUN COMPLETE.  1 WARNING(S),  0 ERROR(S)
